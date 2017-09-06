@@ -1,0 +1,16 @@
+{
+  "name": "missandei",
+  "version": "1.0.0",
+  "description": "Bot for Operations Team Use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "manik jain",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^3.12.0",
+    "redis": "^2.8.0",
+    "superagent": "^3.6.0"
+  }
+}
