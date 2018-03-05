@@ -5,7 +5,10 @@ This app makes use of a slack bot and incoming webhooks. The bot functionality h
 
 The app uses '@slack/client' node module and leverages the RTM Events API for working with messages/connection/authentication.
 
-(Some screenshots have a different botname, because it was changed in the app later)
+Note:- 
+
+* Some screenshots have a different botname, because it was changed in the app later
+* Some hidden files/values for integration with the bot,webhooks in slack app and google calendar API have been omitted.
 
 ## Features
 
