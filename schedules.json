@@ -1,0 +1,17 @@
+{
+    "SCHEDULES": {
+      "HOTSEAT": "VALUE",
+      "HOTSEAT_SEC": "VALUE",
+      "OPS_MGT": "VALUE",
+      "OPS_DBA_1": "VALUE",
+      "OPS_DBA_2": "VALUE",
+      "ONCALL_PRIMARY": "VALUE",
+      "ONCALL_SEC": "VALUE",
+      "OPS_VCL": "VALUE"
+    },
+    "ESC_POLICY": {
+      "OPS_DEFAULT": "VALUE",
+      "ROTATION_VCL": "VALUE",
+      "DBA": "VALUE"
+    }
+}
