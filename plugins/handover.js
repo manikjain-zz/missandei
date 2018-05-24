@@ -16,7 +16,7 @@ module.exports = function Handover(client, bot) {
   
   this.addTask = function(name, task, channel) {
     if (task === '') {
-      channel.send('Usage: \`handover add [TASK]\`');
+      bot.send('Usage: \`handover add [TASK]\`');
       return;
     }
   
@@ -48,7 +48,7 @@ module.exports = function Handover(client, bot) {
 
   this.completeTask = function(name, taskNum, channel) {
     if (Number.isNaN(taskNum)) {
-      channel.send('Usage: \`handover complete [TASK_NUMBER]\`');
+      bot.send('Usage: \`handover complete [TASK_NUMBER]\`');
       return;
     }
   
