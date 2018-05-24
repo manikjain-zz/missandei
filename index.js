@@ -222,6 +222,10 @@ bot.respondTo('handover', (message, channel, user) => {
       handover.addTask(user.profile.first_name = user.profile.real_name, args.slice(1).join(' '), channel);
       break;
 
+    case 'edit':
+      handover.editTask(user.profile.first_name = user.profile.real_name, args[1], args.slice(2).join(' '), channel);
+      break;
+
     case 'complete':
       handover.completeTask(user.profile.first_name = user.profile.real_name, parseInt(args[1], 10), channel);
       break;
@@ -231,7 +235,7 @@ bot.respondTo('handover', (message, channel, user) => {
       break;
 
     case 'help':
-      bot.send('Show handover with \`handover list\`, add handover tasks with \`handover add [TASK]\`, complete them with \`handover complete [TASK_NUMBER]\` and remove them with \`handover delete [TASK_NUMBER]\` or \`handover delete all\`', channel);
+      bot.send('Show handover with \`handover list\`, add handover tasks with \`handover add [TASK]\`, complete them with \`handover complete [TASK_NUMBER]\`, edit with \`handover edit [TASK_NUMBER] [TASK]\`, and remove them with \`handover delete [TASK_NUMBER]\` or \`handover delete all\`', channel);
       break;
 
     case 'list':
