@@ -174,6 +174,23 @@ bot.respondTo('alerts', (message, channel, user) => {
         });
         break;
 
+      case 'taketheimpossible':
+        client.hgetall('OnAlerts', (err, reply) => {
+          if (err) {
+            console.log(err);
+            bot.send('Oops! I tried to find who\'s on alerts but failed. :(', channel);
+            return;
+          }
+        bot.send(`Good day, Mr. ${user.profile.real_name} <@${user.id}>. Your mission, should you choose to accept it, involves the recovery of all alerts in PagerDuty and completion of handover items. Pursue us, you'll be caught and your precious Secondary will disavow all knowledge of your actions.`, channel);
+        bot.send(`And Mr. ${reply.realname} <@${reply.username}>, the next time you go on break, please be good enough to let us know where you're going. This message will self-destruct in five seconds. :boom-animated:`, channel)
+        });
+        client.hmset('OnAlerts', {username: user.id, realname: user.profile.real_name}, (err) => {
+          if (err) {
+            bot.send('Error: Oops! I tried to put you on alerts but failed. :(', channel);
+          }
+        });
+        break;
+
       case 'who':
       case 'whom':
       case '0':
@@ -190,7 +207,7 @@ bot.respondTo('alerts', (message, channel, user) => {
         break;
 
       case 'help':
-        bot.send('Usage: \`alerts [who|whom|0|1]\` - Find who is on alerts, \`alerts [take|taketh|takewhatismine|takeadeepbreath]\` - Put yourself on alerts', channel);
+        bot.send('Usage: \`alerts [who|whom|0|1]\` - Find who is on alerts, \`alerts [take|taketh|takewhatismine|takeadeepbreath|taketheimpossible]\` - Put yourself on alerts', channel);
         break;
     }
   }
