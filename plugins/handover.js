@@ -24,7 +24,28 @@ module.exports = function Handover(client, bot) {
     bot.send('Added the task to handover!', channel);
     this.showHandover(name, channel);
   };
-  
+
+  this.editTask = function(name, target, task, channel) {
+    let taskNum = parseInt(target, 10);
+
+    if (Number.isNaN(taskNum) || task === '') {
+      bot.send('Usage: \`handover edit [TASK_NUMBER] [TASK]\` ', channel);
+      return;
+    }
+
+    client.smembers('handover', (err, set) => {
+      if (err || taskNum <= 0 || taskNum > set.length) {
+        bot.send('Oops, that task doesn\'t exist!', channel);
+        return;
+      }
+
+      client.srem('handover', set[taskNum - 1]);
+      client.sadd('handover', task);
+      bot.send('Updated handover task!', channel);
+      this.showHandover(name, channel);
+    });
+  }
+
   this.completeTask = function(name, taskNum, channel) {
     if (Number.isNaN(taskNum)) {
       channel.send('Usage: \`handover complete [TASK_NUMBER]\`');
