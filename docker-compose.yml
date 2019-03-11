@@ -1,0 +1,13 @@
+version: '3'
+services:
+  redis:
+    restart: unless-stopped
+    image: 'redis:latest'
+  app:
+    restart: unless-stopped
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379

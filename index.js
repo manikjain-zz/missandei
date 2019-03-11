@@ -11,7 +11,10 @@ const moment = require('moment');
 const fs = require('fs');
 const PD = require('./schedules');
 
-const client = redis.createClient();
+const client = redis.createClient({
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT
+});
 const bot = new Bot({token: data.BOT.key});
 const handover = new Handover(client, bot);
 const opscalendar = new OpsCalendar();
